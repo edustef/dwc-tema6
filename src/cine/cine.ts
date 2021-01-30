@@ -68,9 +68,9 @@ const state: State = {
   ],
 };
 
-initializeSala(14, 11);
+initSala(14, 11);
 
-function initializeSala(maxRows: number, maxCols: number): void {
+function initSala(maxRows: number, maxCols: number): void {
   const sala = document.querySelector('#sala');
   sala.innerHTML = null;
   sala.addEventListener('click', handleUserSelection);
