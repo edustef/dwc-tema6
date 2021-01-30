@@ -5,6 +5,21 @@ const CssMinimizerPlugin = require('css-minimizer-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const common = require('./webpack.config');
 const { merge } = require('webpack-merge');
+const pages = require('./pages');
+const camelCase = require('lodash/camelCase');
+
+const htmlPages = pages.map(page => {
+  return new HtmlWebpackPlugin({
+    template: `./src/${page}/${page}.html`,
+    filename: `${page}.html`,
+    chunks: [camelCase(page)],
+    minify: {
+      removeAttributeQuotes: true,
+      collapseWhitespace: true,
+      removeComments: true,
+    },
+  });
+});
 
 module.exports = merge(common, {
   mode: 'production',
@@ -18,14 +33,16 @@ module.exports = merge(common, {
       chunkFilename: '[id].css',
     }),
     new HtmlWebpackPlugin({
-      title: 'Output Management',
+      template: './src/index.html',
+      filename: 'index.html',
+      chunks: ['main'],
       minify: {
         removeAttributeQuotes: true,
         collapseWhitespace: true,
         removeComments: true,
       },
     }),
-  ],
+  ].concat(htmlPages),
   module: {
     rules: [
       {

@@ -1,7 +1,19 @@
+const pages = require('./pages');
+const camelCase = require('lodash/camelCase');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
+const ts = require('typescript');
+
+const tsFiles = {};
+
+pages.forEach(page => {
+  tsFiles[camelCase(page)] = `./src/${page}/${page}.ts`;
+});
 
 module.exports = {
-  entry: './src/index.ts',
+  entry: {
+    main: './src/index.ts',
+    ...tsFiles,
+  },
   module: {
     rules: [
       {
