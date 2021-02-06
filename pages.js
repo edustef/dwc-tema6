@@ -4,4 +4,7 @@ module.exports = [
   'cine',
   'listado',
   'rejilla',
+  'generador-formularios',
+  'ajedrez',
+  'conecta',
 ];

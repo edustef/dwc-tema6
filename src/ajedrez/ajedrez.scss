@@ -1,0 +1,26 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  display: grid;
+  place-content: center;
+  width: 100vw;
+  height: 100vh;
+}
+
+.board {
+  border: 3px solid gray;
+  width: 800px;
+  display: flex;
+  flex-direction: column;
+}
+
+.board-row {
+  display: flex;
+}
+.square {
+  width: 100px;
+  height: 100px;
+}

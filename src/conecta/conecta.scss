@@ -1,0 +1,30 @@
+div#tablero {
+  border: 10px solid #2e4f98;
+  padding: 0px;
+  margin: 0px auto;
+  background-color: beige;
+  opacity: 0.8;
+  width: 700px;
+}
+
+.clearfix {
+  overflow: hidden;
+}
+
+div#finjuego {
+  background: red;
+  position: absolute;
+  left: 40%;
+  top: 20%;
+  min-height: 100px;
+  display: none;
+}
+
+div.celda {
+  background: url(imagenes/tablero.png) no-repeat;
+  padding: 0;
+  margin: 0;
+  width: 100px;
+  height: 100px;
+  float: left;
+}
