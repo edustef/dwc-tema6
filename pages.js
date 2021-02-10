@@ -7,4 +7,5 @@ module.exports = [
   'generador-formularios',
   'ajedrez',
   'conecta',
+  'tabla-dinamica'
 ];

@@ -1,0 +1,84 @@
+@use "sass:color";
+
+$green: #009879;
+$gray: #dddddd;
+$spaceY: 0.6em;
+$spaceX: 0.4em;
+$radius: 5px;
+
+@mixin button($bg-color) {
+  border: none;
+  border-radius: $radius;
+  padding: $spaceY $spaceX;
+  background-color: $bg-color;
+  &:hover {
+    background-color: darken($color: $bg-color, $amount: 10%);
+  }
+}
+
+.chose-place {
+  @include button(white);
+}
+
+.delete-button {
+  @include button(#ff7979);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  display: grid;
+  place-content: center;
+  min-height: 100vh;
+  min-width: 100vw;
+  font-size: 21px;
+  font-family: sans-serif;
+}
+
+.container {
+  min-width: 800px;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+
+  th {
+    background-color: $green;
+    color: white;
+    text-align: left;
+  }
+
+  input {
+    padding: $spaceY $spaceX;
+    border-radius: $radius;
+    border: 1px solid $gray;
+  }
+
+  th,
+  td {
+    padding: $spaceY $spaceX;
+  }
+
+  tbody tr {
+    border-bottom: 1px solid $gray;
+  }
+
+  tbody tr:hover {
+    font-weight: bold;
+    color: $green;
+  }
+
+  tr:nth-of-type(even) {
+    background-color: #f3f3f3;
+  }
+
+  tbody tr:last-of-type {
+    border-bottom: 2px solid $green;
+  }
+}
